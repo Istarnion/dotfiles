@@ -160,3 +160,15 @@ extract () {
     calc="${calc//x/*}"
     echo "$(($calc))"
 }
+
+gpu() {
+    sudo tee /proc/acpi/bbswitch <<<$1
+    echo "turning the dedicated GPU $1"
+}
+
+export groot="$(go env GOROOT)"
+export GOROOT=$groot
+export GOPATH=/opt/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+unset groot
+

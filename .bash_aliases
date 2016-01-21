@@ -47,3 +47,7 @@ alias netbeans="exec i3-msg 'exec (/usr/local/netbeans-8.0.2/bin/netbeans &) > /
 alias root='sudo "$BASH" -c "$(history -p !!)"'
 
 alias cava="cava -i fifo -p /tmp/mpd.fifo"
+
+alias xbox="sudo xboxdrv --device-by-id 0e6f:0301 --type xbox360 --silent &"
+
+alias sudo='sudo '
