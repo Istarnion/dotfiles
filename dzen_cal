@@ -13,12 +13,16 @@ KILLRESULT=$(ps aux |grep 'dzen2' |wc -l)
 echo $KILLRESULT
 if [ $KILLRESULT -gt 1 ]; then killall dzen2 && exit; fi
 
+# show time
+date +"%H:%M" |dzen2 -fg '#6c6c6c' -bg '#222222' -fn 'Bitstream Vera Sans Mono-20' -x 1630 -y 1010 -w 260 -l 18 -sa c
+
+
 TODAY=$(expr `date +'%d'` + 0)
 MONTH=`date +'%m'`
 YEAR=`date +'%Y'`
 
 (
-echo '^bg(#222222)^fg(#00EE00)'`date +'%A %d %B %Y %n'`; echo
+echo '^bg(#222222)^fg(#00EE00)'`date +'[ %A - %H:%M ]'`; echo
 \
 # current month, hilight header and today
 cal \
@@ -31,3 +35,4 @@ cal `expr \( $MONTH + 1 \) % 12` $YEAR \
 
 ) \
     | dzen2 -fg '#6c6c6c' -bg '#222222' -fn 'Bitstream Vera Sans Mono-12' -x 1630 -y 1010 -w 260 -l 18 -sa c -p -e 'onstart=uncollapse;key_Escape=ungrabkeys,exit'
+
