@@ -200,10 +200,10 @@ exec --no-startup-id dropbox start
 
 exec --no-startup-id compton -D 1
 
-bindsym $mod+c [class="(?i)emacs"] focus, focus parent, focus parent, kill, workspace 1
-bindsym $mod+p [class="(?i)emacs"] focus
-bindsym $mod+m workspace 1
 bindsym $mod+g [class="(?i)Google-chrome"] focus
+
+# calendar
+bindsym $mod+c exec dzen_cal
 
 # keybinding for lockscreen
 bindsym $mod+Shift+oslash exec lock
